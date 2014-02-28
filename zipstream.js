@@ -76,8 +76,9 @@ ZipStream.prototype._read = function() {
       self.callback(self.fileptr);
     }
   }
-
-  process.nextTick(function() { self._read(); }); //TODO improve
+  
+  setImmediate(function() { self._read(); });
+  //process.nextTick(function() { self._read(); }); //TODO improve
 }
 
 
